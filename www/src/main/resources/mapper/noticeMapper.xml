@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 매핑할 DAO -->
+<mapper namespace="www.silver.dao.IF_NoticeBoardDAO">
+	<!-- parameterType = 쿼리문의 "?"부분의 정보, DAO가 insert하기위해 필요한 데이터 type -->
+	<insert id="insertBoard" parameterType="www.silver.vo.UserVO">
+		insert into kboard values (#{type},#{username},#{userpassword},#{title},#{comments},#{memberonly},sysdate)
+	</insert>
+
+</mapper>
+

@@ -440,11 +440,11 @@ li {
 				</div>
 				<div class="col-md-3">
 					<label for="inputCity" class="form-label">작성자</label> <input
-						type="text" class="form-control" id="inputCity" name="userName">
+						type="text" class="form-control" id="inputCity" name="username">
 				</div>
 				<div class="col-md-3">
 					<label for="inputPassword4" class="form-label">Password</label> <input
-						type="password" class="form-control" id="inputPassword4" name="uesrPassword">
+						type="password" class="form-control" id="inputPassword4" name="userpassword">
 				</div>
 				<div class="col-12">
 					<label for="inputAddress" class="form-label">제목</label> <input
@@ -460,17 +460,18 @@ li {
 				</div>
 				<div class="mb-3">
 					<input class="form-control" type="file" id="formFile"> <input
-						class="form-control" type="file" id="formFile" name="referenceFile">
+						class="form-control" type="file" id="formFile" name="referencefile">
 				</div>
 
 				<div class="col-12">
 					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="gridCheck" name="memberOnly">
+						<input class="form-check-input" type="checkbox" id="gridCheck" name="memberonly" value="1">
 						<label class="form-check-label" for="gridCheck"> 회원만 보기 </label>
 					</div>
 				</div>
 				<div class="col-12">
 					<button type="submit" class="btn btn-primary">저장하기</button>
+					<!-- submit 타입 액션은 form 태그의 action의 값과 method방식으로 전송한다는 의미 -->
 				</div>
 			</form>
 		</div>
@@ -514,7 +515,7 @@ li {
 </style>
 			<br>
 			<div id="news">
-				<img src="./img/we.PNG">
+				<img src="<%=request.getContextPath()%>/resources/img/we.PNG">
 			</div>
 			<div id="talks"></div>
 		</div>

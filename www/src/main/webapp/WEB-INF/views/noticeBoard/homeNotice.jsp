@@ -263,10 +263,10 @@ nav li.dropdown:hover>ul.dropdown-menu {
 		</div>
 
 		<style>
-li {
-	color: white;
-}
-</style>
+			li {
+				color: white;
+			}
+		</style>
 	</div>
 	<div id="nav">
 		<nav class="navbar navbar-expand-lg "
@@ -436,13 +436,13 @@ li {
 				<table class="table">
 					<thead class="table-dark">
 						<tr>
-							<th scope="col">#</th>
-							<th scope="col">First</th>
-							<th scope="col">Last</th>
-							<th scope="col">Handle</th>
+							<th scope="col">놀이터</th>
+							<th scope="col">작성자</th>
+							<th scope="col">제목</th>
+							<th scope="col">날짜</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="notice" method="GET">
 						<tr>
 							<th scope="row">1</th>
 							<td>Mark</td>
@@ -553,7 +553,7 @@ li {
 </style>
 			<br>
 			<div id="news">
-				<img src="./img/we.PNG">
+				<img src="<%=request.getContextPath()%>/resources/img/we.PNG">
 			</div>
 			<div id="talks"></div>
 		</div>
