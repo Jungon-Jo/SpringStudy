@@ -1,5 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -256,9 +254,9 @@ nav li.dropdown:hover>ul.dropdown-menu {
 				<p>
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 						fill="currentColor" class="bi bi-bug" viewBox="0 0 16 16">
-            <path
+            		<path
 							d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z" />
-          </svg>
+          			</svg>
 					현재사용자 : Guest
 				</p>
 			</div>
@@ -423,65 +421,104 @@ li {
 			</div>
 		</div>
 		<div id="mainsection_01">
+
 			<div>
-				<div id="carouselExampleCaptions" class="carousel slide">
-					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#carouselExampleCaptions"
-							data-bs-slide-to="0" class="active" aria-current="true"
-							aria-label="Slide 1"></button>
-						<button type="button" data-bs-target="#carouselExampleCaptions"
-							data-bs-slide-to="1" aria-label="Slide 2"></button>
-						<button type="button" data-bs-target="#carouselExampleCaptions"
-							data-bs-slide-to="2" aria-label="Slide 3"></button>
-					</div>
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img src="<%=request.getContextPath()%>/resources/img/js.PNG"
-								class="d-block w-100" alt="...">
-							<div class="carousel-caption d-none d-md-block">
-								<h5>올바른 개발자</h5>
-								<p>첫 시작은 올바르게</p>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<img
-								src="<%=request.getContextPath()%>/resources/img/indexmain.PNG"
-								class="d-block w-100" alt="...">
-							<div class="carousel-caption d-none d-md-block">
-								<h5>Second slide label</h5>
-								<p>Some representative placeholder content for the second
-									slide.</p>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<img
-								src="<%=request.getContextPath()%>/resources/img/indexmain.jpg"
-								class="d-block w-100" alt="...">
-							<div class="carousel-caption d-none d-md-block">
-								<h5>Third slide label</h5>
-								<p>Some representative placeholder content for the third
-									slide.</p>
-							</div>
+				<div>
+					<div class="card text-center">
+						<div class="card-body">
+
+							<h5 class="card-title">게시판</h5>
 						</div>
 					</div>
-					<button class="carousel-control-prev" type="button"
-						data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Previous</span>
-					</button>
-					<button class="carousel-control-next" type="button"
-						data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Next</span>
-					</button>
 				</div>
 			</div>
+			<div id="article_table">
+				<table class="table">
+					<thead class="table-dark">
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">First</th>
+							<th scope="col">Last</th>
+							<th scope="col">Handle</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td>@mdo</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td>@fat</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+						</tr>
 
+					</tbody>
+				</table>
+				<div id="table_menu">
+					<a href="addNoticeWindow"> <svg
+							xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+							fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
+            <path
+								d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z" />
+            <path
+								d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
+          </svg>
+					</a>
+				</div>
+
+			</div>
 		</div>
 	</div>
+
+
+
 	<div id="asidelogin">
 		<div id="loginbox">
-			<div id="loginup">KimTeacher Laps에 참여하세요</div>
+			<div id="loginup">KimTeacher Lap에 참여하세요</div>
 			<div id="login" data-bs-toggle="modal" data-bs-target="#loginModal">
 				KimTeacher 로그인</div>
 			<div id="logindown">
@@ -516,98 +553,25 @@ li {
 </style>
 			<br>
 			<div id="news">
-				<img src="<%=request.getContextPath()%>/resources/img/we.PNG">
+				<img src="./img/we.PNG">
 			</div>
 			<div id="talks"></div>
 		</div>
 		<div></div>
 	</div>
 
-	<div id="infosection">
-		<div class="infosetion_card">
-			<h3>Java</h3>
-			<hr>
-			<p>객체지향언어 자바는 프로그래밍 실력향상에 좋은 언어이다</p>
-		</div>
-		<div class="infosetion_card">
-			<h3>Spring</h3>
-			<hr>
-			<p>웹개발에서 Spring은 필수적인 요소이다. 프레임워크를 구성을 이해하자</p>
-		</div>
-		<div class="infosetion_card">
-			<h3>JavaScript</h3>
-			<hr>
-			<p>자바스크립트는 html 태그를 선택하여 동적인 효과를 가져다 주며 반응형 웹에서 많이 사용한다.</p>
-		</div>
-		<div class="infosetion_card">
-			<h3>JavaScript</h3>
-			<hr>
-			<p>자바스크립트는 html 태그를 선택하여 동적인 효과를 가져다 주며 반응형 웹에서 많이 사용한다.</p>
-		</div>
-		<div class="infosetion_card">
-			<h3>JavaScript</h3>
-			<hr>
-			<p>자바스크립트는 html 태그를 선택하여 동적인 효과를 가져다 주며 반응형 웹에서 많이 사용한다.</p>
-		</div>
 
-	</div>
 	<div id="footer">
 		<hr>
 		김티처 tel. 010-9407-8767
 	</div>
 	<!-- Modal -->
-	<form action="join" method="post">
-		<div class="modal fade" id="exampleModal" tabindex="-1"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h1 class="modal-title fs-5" id="exampleModalLabel">회원가입</h1>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1">ID</span> <input
-								type="text" class="form-control" placeholder="Username"
-								aria-label="Username" aria-describedby="basic-addon1" name="id">
-						</div>
-						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1">PASS</span> <input
-								type="text" class="form-control" placeholder="Pass"
-								aria-label="Username" aria-describedby="basic-addon1"
-								name="password">
-						</div>
-						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1">TEL</span> <input
-								type="text" class="form-control" placeholder="tel"
-								aria-label="Username" aria-describedby="basic-addon1" name="tel">
-						</div>
-						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1">EMAIL</span> <input
-								type="text" class="form-control" placeholder="E-mail"
-								aria-label="Username" aria-describedby="basic-addon1"
-								name="email">
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-secondary"
-							data-bs-dismiss="modal">Save</button>
-						<button type="button" class="btn btn-primary"
-							data-bs-dismiss="modal">Cancel</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
-	<!-- Modal -->
-	<!-- Modal -->
-	<div class="modal fade" id="loginModal" tabindex="-1"
-		aria-labelledby="exampleModalLabel1" aria-hidden="true">
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel1">로그인</h1>
+					<h1 class="modal-title fs-5" id="exampleModalLabel">회원가입</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -622,17 +586,60 @@ li {
 							type="text" class="form-control" placeholder="Pass"
 							aria-label="Username" aria-describedby="basic-addon1">
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">login</button>
-						<button type="button" class="btn btn-primary "
-							data-bs-dismiss="modal">Cancel</button>
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="basic-addon1">TEL</span> <input
+							type="text" class="form-control" placeholder="tel"
+							aria-label="Username" aria-describedby="basic-addon1">
 					</div>
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="basic-addon1">EMAIL</span> <input
+							type="text" class="form-control" placeholder="E-mail"
+							aria-label="Username" aria-describedby="basic-addon1">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Save</button>
+					<button type="button" class="btn btn-primary"
+						data-bs-dismiss="modal">Cancel</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Modal -->
+	<div>
+		<!-- Modal -->
+		<!-- Modal -->
+		<div class="modal fade" id="loginModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel1" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel1">로그인</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="basic-addon1">ID</span> <input
+								type="text" class="form-control" placeholder="Username"
+								aria-label="Username" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="basic-addon1">PASS</span> <input
+								type="text" class="form-control" placeholder="Pass"
+								aria-label="Username" aria-describedby="basic-addon1">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">login</button>
+							<button type="button" class="btn btn-primary "
+								data-bs-dismiss="modal">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<!-- Modal -->
 </body>
 
 </html>
