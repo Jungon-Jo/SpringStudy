@@ -5,9 +5,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 매핑할 DAO -->
 <mapper namespace="www.silver.dao.IF_NoticeBoardDAO">
 	<!-- parameterType = 쿼리문의 "?"부분의 정보, DAO가 insert하기위해 필요한 데이터 type -->
-	<insert id="insertBoard" parameterType="www.silver.vo.UserVO">
-		insert into kboard values (#{type},#{username},#{userpassword},#{title},#{comments},#{memberonly},sysdate)
+	<insert id="insertNotice" parameterType="www.silver.vo.UserVO">
+		insert into kboard values (#{type},#{username},#{userpassword},#{title},#{comments},#{memberonly},sysdate,next_val.nextval)
 	</insert>
-
+	<select id="selectAll" resultType="www.silver.vo.UserVO">
+		select * from kboard order by sequence
+	</select>
+	<delete id="deleteNotice" parameterType="int">
+		delete from kboard where sequence=#{noticeNumber}
+	</delete>
 </mapper>
 

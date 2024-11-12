@@ -8,6 +8,7 @@ public class UserVO {
 	String comments = null;
 	String memberonly = null;
 	String indate = null;
+	int sequence = 0;
 
 	public String getType() {
 		return type;
@@ -65,10 +66,21 @@ public class UserVO {
 		this.indate = indate;
 	}
 
+	public int getSequence() {
+		return sequence;
+	}
+
+	public void setSequence(int sequence) {
+		this.sequence = sequence;
+	}
+
 	@Override
 	public String toString() {
 		return "UserVO [type=" + type + ", username=" + username + ", userpassword=" + userpassword + ", title=" + title
-				+ ", comments=" + comments + ", memberonly=" + memberonly + ", indate=" + indate + "]";
+				+ ", comments=" + comments + ", memberonly=" + memberonly + ", indate=" + indate + ", sequence="
+				+ sequence + "]";
 	}
+
+	
 
 }

@@ -1,5 +1,7 @@
 package www.silver.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -16,10 +18,20 @@ public class NoticeBoardDAO_Implement implements IF_NoticeBoardDAO{
 	SqlSession sqlSession;
 	
 	@Override
-	public void insertBoard(UserVO userVO) throws Exception {
+	public void insertNotice(UserVO userVO) throws Exception {
 		// SqlSession을 통해서 mapper와 매핑하기 위해 정보를 넘겨준다.
 		System.out.println(userVO.toString()); 
-		sqlSession.insert(mapperQuery+".insertBoard",userVO);
+		sqlSession.insert(mapperQuery+".insertNotice",userVO);
+	}
+
+	@Override
+	public List<UserVO> selectAll() throws Exception {
+		return sqlSession.selectList(mapperQuery+".selectAll");
+	}
+
+	@Override
+	public void deleteNotice(int noticeNumber) throws Exception {
+		sqlSession.insert(mapperQuery+".deleteNotice",noticeNumber);
 	}
 
 }

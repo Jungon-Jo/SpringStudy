@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -236,7 +237,34 @@ nav li.dropdown:hover>ul.dropdown-menu {
 	margin: 0;
 }
 </style>
-
+<script type="text/javascript">
+function order() {
+    let type = document.getElementById("inputMenu").value;
+    let username = document.getElementById("inputQuantity").value;
+    for(m of menu) {
+        if(input == m) {
+            // let kk = confirm("주문할까요?");
+            // alert(kk);  // confirm method의 리턴값 확인
+            if(confirm("주문할까요?\n" + input + "   " + quantity + "개" )) {
+                // orderList 테이블 객체에 row를 추가한다.
+                // table row를 추가한다.
+                let newOrder = orderList.insertRow();  // row 만들기
+                let cell1 = newOrder.insertCell(0);  // 컬럼 만들기
+                let cell2 = newOrder.insertCell(1);  // 컬럼 만들기
+                let cell3 = newOrder.insertCell(2);  // 컬럼 만들기
+                cell1.innerHTML = "<input type = \"checkbox\">";
+                cell2.innerHTML = input;
+                cell3.innerHTML = quantity + "개";
+            } else {
+                alert("주문을 취소합니다.")
+            }
+            
+            return;
+        }
+    }
+    alert("메뉴가 없습니다.")
+}
+</script>
 <body>
 	<div id="header">
 		<div class="header_10">
@@ -436,66 +464,28 @@ nav li.dropdown:hover>ul.dropdown-menu {
 				<table class="table">
 					<thead class="table-dark">
 						<tr>
-							<th scope="col">놀이터</th>
-							<th scope="col">작성자</th>
-							<th scope="col">제목</th>
-							<th scope="col">날짜</th>
+							<th scope="col" width=10%>No</th>
+							<th scope="col" width=10%>놀이터</th>
+							<th scope="col" width=10%>작성자</th>
+							<th scope="col" width=10%>제목</th>
+							<th scope="col" width=10%>날짜</th>
+							<th scope="col" width=10%>비밀글 여부</th>
+							<th scope="col" width=10%>수정/삭제</th>
 						</tr>
 					</thead>
-					<tbody id="notice" method="GET">
-						<tr>
-							<th scope="row">1</th>
-							<td>Mark</td>
-							<td>Otto</td>
-							<td>@mdo</td>
-						</tr>
-						<tr>
-							<th scope="row">2</th>
-							<td>Jacob</td>
-							<td>Thornton</td>
-							<td>@fat</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td colspan="2">Larry the Bird</td>
-							<td>@twitter</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td colspan="2">Larry the Bird</td>
-							<td>@twitter</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td colspan="2">Larry the Bird</td>
-							<td>@twitter</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td colspan="2">Larry the Bird</td>
-							<td>@twitter</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td colspan="2">Larry the Bird</td>
-							<td>@twitter</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td colspan="2">Larry the Bird</td>
-							<td>@twitter</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td colspan="2">Larry the Bird</td>
-							<td>@twitter</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td colspan="2">Larry the Bird</td>
-							<td>@twitter</td>
-						</tr>
-
+					<tbody>
+					<!-- 하나의 VO가 된다. -->
+						<c:forEach items="${allNotice}" var="userVO" varStatus="status">
+							<tr>
+								<th scope="row">${status.count}</th>
+								<td>${userVO.type}</td>
+								<td>${userVO.username}</td>
+								<td>${userVO.title}</td>
+								<td>${userVO.indate}</td>
+								<td>${userVO.memberonly}</td>
+								<td><a href="deleteNotice?noticeNumber=${userVO.sequence}">수정</a>/삭제</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 				<div id="table_menu">
