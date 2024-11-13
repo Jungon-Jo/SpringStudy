@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -237,34 +237,7 @@ nav li.dropdown:hover>ul.dropdown-menu {
 	margin: 0;
 }
 </style>
-<script type="text/javascript">
-function order() {
-    let type = document.getElementById("inputMenu").value;
-    let username = document.getElementById("inputQuantity").value;
-    for(m of menu) {
-        if(input == m) {
-            // let kk = confirm("주문할까요?");
-            // alert(kk);  // confirm method의 리턴값 확인
-            if(confirm("주문할까요?\n" + input + "   " + quantity + "개" )) {
-                // orderList 테이블 객체에 row를 추가한다.
-                // table row를 추가한다.
-                let newOrder = orderList.insertRow();  // row 만들기
-                let cell1 = newOrder.insertCell(0);  // 컬럼 만들기
-                let cell2 = newOrder.insertCell(1);  // 컬럼 만들기
-                let cell3 = newOrder.insertCell(2);  // 컬럼 만들기
-                cell1.innerHTML = "<input type = \"checkbox\">";
-                cell2.innerHTML = input;
-                cell3.innerHTML = quantity + "개";
-            } else {
-                alert("주문을 취소합니다.")
-            }
-            
-            return;
-        }
-    }
-    alert("메뉴가 없습니다.")
-}
-</script>
+
 <body>
 	<div id="header">
 		<div class="header_10">
@@ -282,9 +255,9 @@ function order() {
 				<p>
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 						fill="currentColor" class="bi bi-bug" viewBox="0 0 16 16">
-            		<path
+            <path
 							d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z" />
-          			</svg>
+          </svg>
 					현재사용자 : Guest
 				</p>
 			</div>
@@ -328,7 +301,7 @@ li {
 										here</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="noticeWindow">게시판</a></li>
+							aria-current="page" href="./bbs.html">게시판</a></li>
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#">뉴스</a></li>
 						<li class="nav-item"><a class="nav-link active"
@@ -449,77 +422,67 @@ li {
 			</div>
 		</div>
 		<div id="mainsection_01">
-
+			<br>
 			<div>
-				<div>
-					<div class="card text-center">
-						<div class="card-body">
-
-							<h5 class="card-title">게시판</h5>
-						</div>
+				<div class="card text-center">
+					<div class="card-body">
+						<h5 class="card-title">Java / DataBase 기록 남기기</h5>
 					</div>
 				</div>
 			</div>
-			<div id="article_table">
-				<table class="table">
-					<thead class="table-dark">
-						<tr>
-							<th scope="col" width=10%>No</th>
-							<th scope="col" width=10%>놀이터</th>
-							<th scope="col" width=10%>작성자</th>
-							<th scope="col" width=10%>제목</th>
-							<th scope="col" width=10%>날짜</th>
-							<th scope="col" width=10%>비밀글 여부</th>
-							<th scope="col" width=10%>수정/삭제</th>
-						</tr>
-					</thead>
-					<tbody>
-						<!-- 하나의 VO가 된다. -->
-						<c:forEach items="${allNotice}" var="userVO" varStatus="status">
-							<tr>
-								<th scope="row">${status.count}</th>
-								<td>${userVO.type}</td>
-								<td>${userVO.username}</td>
-								<td>${userVO.title}</td>
-								<td>${userVO.indate}</td>
-								<td>${userVO.memberonly}</td>
-								<td><a href="editNotice?noticeNumber=${userVO.sequence}">수정</a>/<a
-									href="deleteNotice?noticeNumber=${userVO.sequence}">삭제</a></td>
-							</tr>
-						</c:forEach>
-						<tr>
-							<td colspan=7><c:if test="${pageVO.prev }">
-									<a href="noticeWindow?page=${pageVO.startPage -1}">[이전페이지그룹]
-									</a>
-								</c:if> <!--  forEach   리스틀 순회,  아래처럼 시작과 끝을 지정하여 반복하는 사용것. --> <c:forEach
-									begin="${pageVO.startPage}" end="${pageVO.endPage }" var="idx">
-									<c:if test="${pageVO.page == idx}">*</c:if>
-									<a href="noticeWindow?page=${idx}">${idx}</a>
-								</c:forEach> <c:if test="${pageVO.next }">
-									<a href="noticeWindow?page=${pageVO.endPage + 1 }">
-										[다음페이지그룹]</a>
-								</c:if></td>
-						</tr>
-					</tbody>
-				</table>
-				<div id="table_menu">
-					<a href="addNoticeWindow"> <svg
-							xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-							fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
-            <path
-								d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z" />
-            <path
-								d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
-          </svg>
-					</a>
+
+			<form class="row g-3" action="editNotice?noticeNumber=${userVO.sequence}" method="post">
+				<div class="col-md-4">
+					<label for="inputState" class="form-label">놀이터 선택</label> <select
+						id="inputState" class="form-select" name="type">
+						<option <c:if test="${userVO.type eq 'Database'}">selected</c:if>>Database</option>
+						<option <c:if test="${userVO.type eq 'Java'}">selected</c:if>>Java</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<label for="inputCity" class="form-label">작성자</label> <input
+						type="text" class="form-control" id="inputCity" name="username"
+						value="${userVO.getUsername()}">
+				</div>
+				<div class="col-md-3">
+					<label for="inputPassword4" class="form-label">Password</label> <input
+						type="password" class="form-control" id="inputPassword4"
+						name="userpassword">
+				</div>
+				<div class="col-12">
+					<label for="inputAddress" class="form-label">제목</label> <input
+						type="text" class="form-control" id="inputAddress"
+						placeholder="제목을 입력하세요" name="title" value="${userVO.getTitle()}">
 				</div>
 
-			</div>
+
+				<div class="form-floating">
+					<textarea class="form-control" placeholder="Leave a comment here"
+						id="floatingTextarea2" style="height: 200px" name="comments">${userVO.getComments()}</textarea>
+					<label for="floatingTextarea2">Comments</label>
+				</div>
+				<div class="mb-3">
+					<input class="form-control" type="file" id="formFile"> <input
+						class="form-control" type="file" id="formFile"
+						name="referencefile">
+				</div>
+
+				<div class="col-12">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="gridCheck"
+							name="memberonly" value="1" <c:if test="${userVO.memberonly eq '공개'}">checked</c:if>> <label
+							class="form-check-label" for="gridCheck"> 회원만 보기 </label>
+					</div>
+				</div>
+				<div class="col-12">
+					<button type="submit" class="btn btn-primary" method="post">수정하기</button>
+					<!-- submit 타입 액션은 form 태그의 action의 값과 method방식으로 전송한다는 의미 -->
+				</div>
+			</form>
 		</div>
+
 	</div>
-
-
-
+	</div>
 	<div id="asidelogin">
 		<div id="loginbox">
 			<div id="loginup">KimTeacher Lap에 참여하세요</div>
@@ -563,8 +526,6 @@ li {
 		</div>
 		<div></div>
 	</div>
-
-
 	<div id="footer">
 		<hr>
 		김티처 tel. 010-9407-8767

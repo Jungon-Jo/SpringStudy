@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import www.silver.vo.PageVO;
 import www.silver.vo.UserVO;
 
 @Repository
@@ -25,13 +26,32 @@ public class NoticeBoardDAO_Implement implements IF_NoticeBoardDAO{
 	}
 
 	@Override
-	public List<UserVO> selectAll() throws Exception {
-		return sqlSession.selectList(mapperQuery+".selectAll");
+	public List<UserVO> selectAll(PageVO pageVO) throws Exception {
+		return sqlSession.selectList(mapperQuery+".selectAll",pageVO);
 	}
 
 	@Override
 	public void deleteNotice(int noticeNumber) throws Exception {
 		sqlSession.insert(mapperQuery+".deleteNotice",noticeNumber);
+	}
+
+	@Override
+	public UserVO selectOne(int noticeNumber) throws Exception {
+		
+		return sqlSession.selectOne(mapperQuery+".selectOne",noticeNumber);
+	}
+
+	@Override
+	public void updateNotice(UserVO userVO) throws Exception {
+//		userVO.setSequence(noticeNumber);
+//		System.out.println(userVO.toString());
+		sqlSession.update(mapperQuery+".updateNotice", userVO);
+		
+	}
+
+	@Override
+	public int totalCountNotice() throws Exception {
+		return sqlSession.selectOne(mapperQuery+".allCountNotice");
 	}
 
 }
