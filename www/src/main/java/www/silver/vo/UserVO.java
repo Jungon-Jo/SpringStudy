@@ -9,6 +9,7 @@ public class UserVO {
 	String memberonly = null;
 	String indate = null;
 	int sequence = 0;
+	String[] fileName = null;
 
 	public String getType() {
 		return type;
@@ -72,6 +73,16 @@ public class UserVO {
 
 	public void setSequence(int sequence) {
 		this.sequence = sequence;
+	}
+
+	
+	
+	public String[] getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String[] fileName) {
+		this.fileName = fileName;
 	}
 
 	@Override

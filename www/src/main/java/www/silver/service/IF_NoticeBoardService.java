@@ -14,4 +14,6 @@ public interface IF_NoticeBoardService {
 	public UserVO editNotice(int noticeNumber) throws Exception;
 	public void editNotice(UserVO userVO) throws Exception;
 	public int totalCountNotice() throws Exception;
+	public UserVO getNotice(int noticeNumber) throws Exception;
+	public List<String> detailNotice(int noticeNumber) throws Exception;
 }

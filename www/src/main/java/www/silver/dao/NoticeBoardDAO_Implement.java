@@ -23,6 +23,7 @@ public class NoticeBoardDAO_Implement implements IF_NoticeBoardDAO{
 		// SqlSession을 통해서 mapper와 매핑하기 위해 정보를 넘겨준다.
 		System.out.println(userVO.toString()); 
 		sqlSession.insert(mapperQuery+".insertNotice",userVO);
+		sqlSession.insert(mapperQuery+".insertAttach",userVO);
 	}
 
 	@Override
@@ -52,6 +53,18 @@ public class NoticeBoardDAO_Implement implements IF_NoticeBoardDAO{
 	@Override
 	public int totalCountNotice() throws Exception {
 		return sqlSession.selectOne(mapperQuery+".allCountNotice");
+	}
+
+	@Override
+	public void insertAttach(int noticeNumber) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<String> selectAllAttach(int noticeNumber) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

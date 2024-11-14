@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -425,52 +426,38 @@ li {
 			<div>
 				<div class="card text-center">
 					<div class="card-body">
-						<h5 class="card-title">Java / DataBase 기록 남기기</h5>
+						<h5 class="card-title">자세히 보기</h5>
 					</div>
 				</div>
 			</div>
 
-			<form class="row g-3" action="addNotice" method="post" encType="multipart/form-data">
+			<form class="row g-3" action="editNotice?noticeNumber=${userVO.sequence}" method="post">
 				<div class="col-md-4">
-					<label for="inputState" class="form-label">놀이터 선택</label> <select
-						id="inputState" class="form-select" name="type">
-						<option selected>Database</option>
-						<option>Java</option>
-					</select>
+					<label for="inputState" class="form-label">놀이터 선택</label>
+					${userVO.getType()}
 				</div>
-				<div class="col-md-3">
-					<label for="inputCity" class="form-label">작성자</label> <input
-						type="text" class="form-control" id="inputCity" name="username">
-				</div>
-				<div class="col-md-3">
-					<label for="inputPassword4" class="form-label">Password</label> <input
-						type="password" class="form-control" id="inputPassword4" name="userpassword">
+				<div class="col-md-3">s
+					<label for="inputCity" class="form-label">작성자</label>
+					${userVO.getUserName()}
 				</div>
 				<div class="col-12">
-					<label for="inputAddress" class="form-label">제목</label> <input
-						type="text" class="form-control" id="inputAddress"
-						placeholder="제목을 입력하세요" name="title">
+					<label for="inputAddress" class="form-label">제목</label>${userVO.getTitle()}
 				</div>
 
 
 				<div class="form-floating">
-					<textarea class="form-control" placeholder="Leave a comment here"
-						id="floatingTextarea2" style="height: 200px" name="comments"></textarea>
+					${userVO.getComments()}
 					<label for="floatingTextarea2">Comments</label>
 				</div>
 				<div class="mb-3">
-					<input class="form-control" type="file" id="formFile" name="file">
-					<input class="form-control" type="file" id="formFile" name="file">
+					<input class="form-control" type="file" id="formFile"> <input
+						class="form-control" type="file" id="formFile"
+						name="referencefile">
 				</div>
 
+
 				<div class="col-12">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="gridCheck" name="memberonly" value="1">
-						<label class="form-check-label" for="gridCheck"> 회원만 보기 </label>
-					</div>
-				</div>
-				<div class="col-12">
-					<button type="submit" class="btn btn-primary">저장하기</button>
+					<button type="submit" class="btn btn-primary" method="get">글 목록 보기</button>
 					<!-- submit 타입 액션은 form 태그의 action의 값과 method방식으로 전송한다는 의미 -->
 				</div>
 			</form>

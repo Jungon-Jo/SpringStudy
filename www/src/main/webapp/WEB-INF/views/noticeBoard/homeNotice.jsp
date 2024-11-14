@@ -480,11 +480,11 @@ li {
 								<th scope="row">${status.count}</th>
 								<td>${userVO.type}</td>
 								<td>${userVO.username}</td>
-								<td>${userVO.title}</td>
+								<td><a href="detailNotice?noticeNumber=${userVO.sequence}"></a>${userVO.title}</td>
 								<td>${userVO.indate}</td>
 								<td>${userVO.memberonly}</td>
-								<td><a href="editNotice?noticeNumber=${userVO.sequence}">수정</a>/<a
-									href="deleteNotice?noticeNumber=${userVO.sequence}">삭제</a></td>
+								<td><a href="editNotice?noticeNumber=${userVO.sequence}">수정</a>
+									<a href="deleteNotice?noticeNumber=${userVO.sequence}">삭제</a></td>
 							</tr>
 						</c:forEach>
 						<tr>

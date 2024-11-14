@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import www.silver.service.IF_NoticeBoardService;
+import www.silver.util.FileDataUtil;
 import www.silver.vo.PageVO;
 import www.silver.vo.UserVO;
 
@@ -20,6 +22,9 @@ public class NoticeBoardController {
 	
 	@Inject
 	IF_NoticeBoardService noticeBoardService;
+	
+	@Inject
+	FileDataUtil fileDataUtil;
 	
 	@GetMapping(value="noticeWindow")
 	public String noticeWindow(Model model, @ModelAttribute PageVO pageVO) throws Exception {
@@ -60,9 +65,17 @@ public class NoticeBoardController {
 	}
 	
 	@PostMapping(value="addNotice")
-	public String addNotice(@ModelAttribute UserVO userVO) throws Exception {
+	public String addNotice(@ModelAttribute UserVO userVO, MultipartFile[] file) throws Exception {
 		noticeBoardService.addNotice(userVO);
+//		System.out.println(file.length);
+//		for(int i = 0; i < file.length; i++) {
+//			System.out.println(file[i].getOriginalFilename());
+//		}
+//		System.out.println(file.length);
 //		System.out.println(userVO.toString());
+		String[] newFileName = fileDataUtil.fileUpload(file);
+		userVO.setFileName(newFileName);
+		System.out.println(newFileName);
 		return "redirect:noticeWindow";
 	}
 	
@@ -84,5 +97,12 @@ public class NoticeBoardController {
 		userVO.setSequence(noticeNumber);
 		noticeBoardService.editNotice(userVO);
 		return "redirect:noticeWindow";
+	}
+	
+	@GetMapping(value="detailNotice")
+	public String detailNotice(@RequestParam("noticeNumber") int noticeNumber, Model model) throws Exception {
+		noticeBoardService.detailNotice(noticeNumber);
+		
+		return null;
 	}
 }

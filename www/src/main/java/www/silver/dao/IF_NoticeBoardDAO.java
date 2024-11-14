@@ -15,4 +15,6 @@ public interface IF_NoticeBoardDAO {
 	public UserVO selectOne(int noticeNumber) throws Exception;
 	public void updateNotice(UserVO userVO) throws Exception;
 	public int totalCountNotice() throws Exception;
+	public void insertAttach(int noticeNumber) throws Exception;
+	public List<String> selectAllAttach(int noticeNumber) throws Exception;
 }

@@ -5,8 +5,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 매핑할 DAO -->
 <mapper namespace="www.silver.dao.IF_NoticeBoardDAO">
 	<!-- parameterType = 쿼리문의 "?"부분의 정보, DAO가 insert하기위해 필요한 데이터 type -->
+	<!-- #{a} : getter의 의미(a는 VO의 변수명) -->
 	<insert id="insertNotice" parameterType="www.silver.vo.UserVO">
 		insert into kboard values (#{type},#{username},#{userpassword},#{title},#{comments},#{memberonly},sysdate,next_val.nextval)
+	</insert>
+	<insert id="insertAttach" parameterType="www.silver.vo.UserVO">
+		insert into kboard_attach values (select max(sequence) from kboard), sequence=#{sequence}, filename=#{}, sysdate)
 	</insert>
 	<select id="selectAll" parameterType="www.silver.vo.PageVO" resultType="www.silver.vo.UserVO">
 		select t.* from (select sub.*, rownum as rnum from (select * from kboard order by indate DESC) sub) t where rnum between #{startNo} and #{endNo}
