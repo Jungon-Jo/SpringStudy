@@ -52,7 +52,7 @@ public class NoticeBoardDAO_Implement implements IF_NoticeBoardDAO{
 
 	@Override
 	public int totalCountNotice() throws Exception {
-		return sqlSession.selectOne(mapperQuery+".allCountNotice");
+		return sqlSession.selectOne(mapperQuery+".countAllNotice");
 	}
 
 	@Override

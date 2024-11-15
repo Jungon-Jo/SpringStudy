@@ -78,8 +78,7 @@ public class NoticeBoardService_Implement implements IF_NoticeBoardService {
 
 	@Override
 	public int totalCountNotice() throws Exception {
-		
-		return 0;
+		return noticeBoardDAO.totalCountNotice();
 	}
 
 	@Override

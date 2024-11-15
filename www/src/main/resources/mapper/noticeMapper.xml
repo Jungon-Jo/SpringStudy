@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from kboard where sequence=#{noticeNumber}
 	</select>
 	<select id="countAllNotice" resultType="int">
-		select count(*) from kboard	
+		select count(*) from kboard
 	</select>
 	<!-- where 조건 속성에 서로다른 두가지 이상의 자료형이 들어가게 될 경우, DAO에서 HashMap을 사용하여 key,value 값을 지정하여 넘겨주도록 한다. -->
 	<update id="updateNotice" parameterType="www.silver.vo.UserVO">

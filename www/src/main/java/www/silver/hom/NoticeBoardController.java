@@ -31,6 +31,8 @@ public class NoticeBoardController {
 		if(pageVO.getPage()==null) {
 			pageVO.setPage(1);
 		}
+		// 페이지 계산 시 필요한 3가지 정보
+		// 1. 현재 페이지, 2. 페이지당 게시물 수, 3. 전체 페이지 수
 		pageVO.setTotalCount(noticeBoardService.totalCountNotice());
 		
 		System.out.println(pageVO.getStartNo() + "시작 글 번호");
